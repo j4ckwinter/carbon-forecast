@@ -27,15 +27,4 @@ describe('AppComponent', (): void => {
     const app: AppComponent = fixture.componentInstance;
     expect(app.title).toEqual('carbon-forecast');
   });
-
-  it('should render title', (): void => {
-    const fixture: ComponentFixture<AppComponent> = TestBed.createComponent(
-      AppComponent
-    );
-    fixture.detectChanges();
-    const compiled: any = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain(
-      'carbon-forecast app is running!'
-    );
-  });
 });
