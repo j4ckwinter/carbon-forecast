@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
+import { HomeComponent } from './home/home.component';
 import { NationalComponent } from './national/national.component';
 import { RegionalComponent } from './regional/regional.component';
 
@@ -10,8 +11,9 @@ import { RegionalComponent } from './regional/regional.component';
   declarations: [
     AppComponent,
     HeaderComponent,
-    RegionalComponent,
+    HomeComponent,
     NationalComponent,
+    RegionalComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
