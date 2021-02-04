@@ -112,7 +112,7 @@
         },
         {
             "name": "HeaderComponent",
-            "id": "component-HeaderComponent-e41aded7dce8dcc9f3904c316e7fb138",
+            "id": "component-HeaderComponent-001db82f7de3e8fc88d27a085af5af9b",
             "file": "src/app/header/header.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -138,7 +138,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 12
+                    "line": 11
                 }
             ],
             "hostBindings": [],
@@ -146,7 +146,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-header',\n  templateUrl: './header.component.html',\n  styleUrls: ['./header.component.scss']\n})\nexport class HeaderComponent implements OnInit {\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-header',\n  templateUrl: './header.component.html',\n  styleUrls: ['./header.component.scss'],\n})\nexport class HeaderComponent implements OnInit {\n  constructor() {}\n\n  ngOnInit(): void {}\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -164,7 +164,7 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<p>header works!</p>\n"
+            "templateData": "<nav class=\"navbar\" role=\"navigation\" aria-label=\"main navigation\">\n  <div class=\"/navbar-brand\">\n    <a class=\"navbar-item\">\n      <img src=\"../../assets/logo.png\" width=\"112\" height=\"28\" alt=\"\">\n    </a>\n  </div>\n</nav>\n"
         }
     ],
     "modules": [
