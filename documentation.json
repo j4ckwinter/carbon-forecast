@@ -109,6 +109,62 @@
             ],
             "stylesData": "",
             "templateData": "<h2>{{ title }}</h2>\n"
+        },
+        {
+            "name": "HeaderComponent",
+            "id": "component-HeaderComponent-001db82f7de3e8fc88d27a085af5af9b",
+            "file": "src/app/header/header.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-header",
+            "styleUrls": [
+                "./header.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./header.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 11
+                }
+            ],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-header',\n  templateUrl: './header.component.html',\n  styleUrls: ['./header.component.scss'],\n})\nexport class HeaderComponent implements OnInit {\n  constructor() {}\n\n  ngOnInit(): void {}\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./header.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [],
+                "line": 8
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<nav class=\"navbar\" role=\"navigation\" aria-label=\"main navigation\">\n  <div class=\"/navbar-brand\">\n    <a class=\"navbar-item\">\n      <img src=\"../../assets/logo.png\" width=\"112\" height=\"28\" alt=\"\">\n    </a>\n  </div>\n</nav>\n"
         }
     ],
     "modules": [
@@ -124,6 +180,9 @@
                     "elements": [
                         {
                             "name": "AppComponent"
+                        },
+                        {
+                            "name": "HeaderComponent"
                         }
                     ]
                 },
@@ -202,6 +261,14 @@
                 "defaultValue": "Template.bind({})"
             },
             {
+                "name": "defaultState",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/header/header.stories.ts",
+                "type": "Story<HeaderComponent>",
+                "defaultValue": "Template.bind({})"
+            },
+            {
                 "name": "environment",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -231,6 +298,14 @@
                 "file": "src/stories/app/app.stories.ts",
                 "type": "Story<AppComponent>",
                 "defaultValue": "(\n  args: AppComponent\n): StoryFnAngularReturnType => ({\n  component: AppComponent,\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/header/header.stories.ts",
+                "type": "Story<HeaderComponent>",
+                "defaultValue": "(\n  args: HeaderComponent\n): StoryFnAngularReturnType => ({\n  component: HeaderComponent,\n  props: args,\n})"
             }
         ],
         "functions": [],
@@ -270,6 +345,24 @@
                     "file": "src/stories/app/app.stories.ts",
                     "type": "Story<AppComponent>",
                     "defaultValue": "(\n  args: AppComponent\n): StoryFnAngularReturnType => ({\n  component: AppComponent,\n  props: args,\n})"
+                }
+            ],
+            "src/stories/header/header.stories.ts": [
+                {
+                    "name": "defaultState",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/header/header.stories.ts",
+                    "type": "Story<HeaderComponent>",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/header/header.stories.ts",
+                    "type": "Story<HeaderComponent>",
+                    "defaultValue": "(\n  args: HeaderComponent\n): StoryFnAngularReturnType => ({\n  component: HeaderComponent,\n  props: args,\n})"
                 }
             ],
             "src/environments/environment.prod.ts": [
@@ -334,6 +427,15 @@
                 "status": "low"
             },
             {
+                "filePath": "src/app/header/header.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "HeaderComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
                 "filePath": "src/environments/env.ts",
                 "type": "interface",
                 "linktype": "interface",
@@ -374,6 +476,26 @@
             },
             {
                 "filePath": "src/stories/app/app.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/header/header.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "defaultState",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/header/header.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",

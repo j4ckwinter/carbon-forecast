@@ -25,6 +25,6 @@ describe('AppComponent', (): void => {
       AppComponent
     );
     const app: AppComponent = fixture.componentInstance;
-    expect(app.title).toEqual('carbon-forecast');
+    expect(app.title).toEqual('Carbon Forecast');
   });
 });
