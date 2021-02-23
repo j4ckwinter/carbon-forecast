@@ -1,6 +1,9 @@
 # CarbonForecast
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.7.
+An app created to provide a trend of regional and national carbon intensity of the electricity system in Great Britain.
+
+## Development server
+Run `npm run storybook` for the storybook server. 
 
 ## Development server
 
