@@ -34,6 +34,7 @@ describe('HomeComponent', (): void => {
         {
           title: 'Home',
           routerLink: '/',
+          isActive: true,
         },
       ];
       // when

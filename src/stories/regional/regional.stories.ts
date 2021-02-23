@@ -43,4 +43,4 @@ const Template: Story<RegionalComponent> = (
   props: args,
 });
 
-export const withRouter: Story<RegionalComponent> = Template.bind({});
+export const defaultState: Story<RegionalComponent> = Template.bind({});

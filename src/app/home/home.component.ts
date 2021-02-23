@@ -11,6 +11,7 @@ export class HomeComponent {
     {
       title: 'Home',
       routerLink: '/',
+      isActive: true,
     },
   ];
 

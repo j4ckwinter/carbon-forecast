@@ -38,6 +38,7 @@ describe('RegionalComponent', (): void => {
         {
           title: 'Regional',
           routerLink: '/regional',
+          isActive: true,
         },
       ];
       // when

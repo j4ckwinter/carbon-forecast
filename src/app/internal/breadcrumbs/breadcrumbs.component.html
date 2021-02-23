@@ -1,7 +1,12 @@
 <nav class="breadcrumb is-medium" aria-label="breadcrumbs">
   <ul>
-    <li *ngFor="let crumb of breadcrumbs">
-      <a class="crumb" routerLink="{{crumb.routerLink}}">{{crumb.title}}</a>
-    </li>
+    <ng-container *ngFor="let crumb of breadcrumbs">
+      <li *ngIf="!crumb.isActive">
+        <a class="crumb" routerLink="{{crumb.routerLink}}">{{crumb.title}}</a>
+      </li>
+      <li *ngIf="crumb.isActive" class="is-active">
+        <a class="crumb-active" aria-current="page" routerLink="{{crumb.routerLink}}">{{crumb.title}}</a>
+      </li>
+    </ng-container>
   </ul>
 </nav>

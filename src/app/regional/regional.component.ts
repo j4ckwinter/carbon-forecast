@@ -15,6 +15,7 @@ export class RegionalComponent {
     {
       title: 'Regional',
       routerLink: '/regional',
+      isActive: true,
     },
   ];
 

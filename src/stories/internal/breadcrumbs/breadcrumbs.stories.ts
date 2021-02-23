@@ -1,4 +1,6 @@
 import { APP_BASE_HREF } from '@angular/common';
+import { Type } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { moduleMetadata } from '@storybook/angular';
 import { StoryFnAngularReturnType } from '@storybook/angular/dist/client/preview/types';
 import { Meta, Story } from '@storybook/angular/types-6-0';
@@ -10,7 +12,20 @@ export default {
   component: BreadcrumbsComponent,
   decorators: [
     moduleMetadata({
-      imports: [AppModule],
+      imports: [
+        AppModule,
+        RouterModule.forRoot(
+          [
+            {
+              path: '',
+              loadChildren: (): Type<AppModule> => AppModule,
+            },
+          ],
+          {
+            useHash: true,
+          }
+        ),
+      ],
       providers: [
         {
           provide: APP_BASE_HREF,
@@ -34,6 +49,6 @@ defaultState.args = {
     { title: 'Home', routerLink: '/' },
     { title: 'Somewhere', routerLink: '/' },
     { title: 'Somewhere Else', routerLink: '/' },
-    { title: 'Nowhere', routerLink: '/' },
+    { title: 'Nowhere', routerLink: '/', isActive: true },
   ],
 };

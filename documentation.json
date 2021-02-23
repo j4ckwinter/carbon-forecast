@@ -3,11 +3,18 @@
     "interfaces": [
         {
             "name": "Breadcrumb",
-            "id": "interface-Breadcrumb-c72ef03e8a96d34196dc7694fb6e7cb7",
+            "id": "interface-Breadcrumb-d135db33b13645bde8d81c598998101d",
             "file": "src/app/internal/breadcrumbs/model/breadcrumb.ts",
             "type": "interface",
-            "sourceCode": "export interface Breadcrumb {\n  title: string;\n  routerLink: string;\n}\n",
+            "sourceCode": "export interface Breadcrumb {\n  title: string;\n  routerLink: string;\n  isActive?: boolean;\n}\n",
             "properties": [
+                {
+                    "name": "isActive",
+                    "type": "boolean",
+                    "optional": true,
+                    "description": "",
+                    "line": 4
+                },
                 {
                     "name": "routerLink",
                     "type": "string",
@@ -170,7 +177,7 @@
                 }
             ],
             "stylesData": "",
-            "templateData": "<nav class=\"breadcrumb is-medium\" aria-label=\"breadcrumbs\">\n  <ul>\n    <li *ngFor=\"let crumb of breadcrumbs\">\n      <a class=\"crumb\" routerLink=\"{{crumb.routerLink}}\">{{crumb.title}}</a>\n    </li>\n  </ul>\n</nav>\n"
+            "templateData": "<nav class=\"breadcrumb is-medium\" aria-label=\"breadcrumbs\">\n  <ul>\n    <ng-container *ngFor=\"let crumb of breadcrumbs\">\n      <li *ngIf=\"!crumb.isActive\">\n        <a class=\"crumb\" routerLink=\"{{crumb.routerLink}}\">{{crumb.title}}</a>\n      </li>\n      <li *ngIf=\"crumb.isActive\" class=\"is-active\">\n        <a class=\"crumb-active\" aria-current=\"page\" routerLink=\"{{crumb.routerLink}}\">{{crumb.title}}</a>\n      </li>\n    </ng-container>\n  </ul>\n</nav>\n"
         },
         {
             "name": "HeaderComponent",
@@ -218,7 +225,7 @@
         },
         {
             "name": "HomeComponent",
-            "id": "component-HomeComponent-78e44c9e9621865ed329e70ecbf5cef1",
+            "id": "component-HomeComponent-b3cd29ccd9c763d2a9d25e225d1f591a",
             "file": "src/app/home/home.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -239,7 +246,7 @@
             "propertiesClass": [
                 {
                     "name": "_breadcrumbs",
-                    "defaultValue": "[\n    {\n      title: 'Home',\n      routerLink: '/',\n    },\n  ]",
+                    "defaultValue": "[\n    {\n      title: 'Home',\n      routerLink: '/',\n      isActive: true,\n    },\n  ]",
                     "type": "Breadcrumb[]",
                     "optional": false,
                     "description": "",
@@ -256,7 +263,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, OnInit } from '@angular/core';\nimport {Breadcrumb} from '../internal/breadcrumbs/model/breadcrumb';\n\n@Component({\n  selector: 'app-home',\n  templateUrl: './home.component.html',\n  styleUrls: ['./home.component.scss'],\n})\nexport class HomeComponent {\n  private readonly _breadcrumbs: Breadcrumb[] = [\n    {\n      title: 'Home',\n      routerLink: '/',\n    },\n  ];\n\n  get breadcrumbs(): Breadcrumb[] {\n    return this._breadcrumbs;\n  }\n}\n",
+            "sourceCode": "import { Component } from '@angular/core';\nimport { Breadcrumb } from '../internal/breadcrumbs/model/breadcrumb';\n\n@Component({\n  selector: 'app-home',\n  templateUrl: './home.component.html',\n  styleUrls: ['./home.component.scss'],\n})\nexport class HomeComponent {\n  private readonly _breadcrumbs: Breadcrumb[] = [\n    {\n      title: 'Home',\n      routerLink: '/',\n      isActive: true,\n    },\n  ];\n\n  get breadcrumbs(): Breadcrumb[] {\n    return this._breadcrumbs;\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -272,7 +279,7 @@
                         "name": "breadcrumbs",
                         "type": "[]",
                         "returnType": "Breadcrumb[]",
-                        "line": 17
+                        "line": 18
                     }
                 }
             },
@@ -280,7 +287,7 @@
         },
         {
             "name": "NationalComponent",
-            "id": "component-NationalComponent-cbd9d0b6ad63427ddbbbe1688edaba7b",
+            "id": "component-NationalComponent-be23665166760459ed4df279cc2ff6c4",
             "file": "src/app/national/national.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -301,7 +308,7 @@
             "propertiesClass": [
                 {
                     "name": "_breadcrumbs",
-                    "defaultValue": "[\n    {\n      title: 'Home',\n      routerLink: '/',\n    },\n    {\n      title: 'National',\n      routerLink: '/national',\n    },\n  ]",
+                    "defaultValue": "[\n    {\n      title: 'Home',\n      routerLink: '/',\n    },\n    {\n      title: 'National',\n      routerLink: '/national',\n      isActive: true,\n    },\n  ]",
                     "type": "Breadcrumb[]",
                     "optional": false,
                     "description": "",
@@ -318,7 +325,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, OnInit } from '@angular/core';\nimport { Breadcrumb } from '../internal/breadcrumbs/model/breadcrumb';\n\n@Component({\n  selector: 'app-national',\n  templateUrl: './national.component.html',\n  styleUrls: ['./national.component.scss'],\n})\nexport class NationalComponent {\n  private readonly _breadcrumbs: Breadcrumb[] = [\n    {\n      title: 'Home',\n      routerLink: '/',\n    },\n    {\n      title: 'National',\n      routerLink: '/national',\n    },\n  ];\n\n  get breadcrumbs(): Breadcrumb[] {\n    return this._breadcrumbs;\n  }\n}\n",
+            "sourceCode": "import { Component } from '@angular/core';\nimport { Breadcrumb } from '../internal/breadcrumbs/model/breadcrumb';\n\n@Component({\n  selector: 'app-national',\n  templateUrl: './national.component.html',\n  styleUrls: ['./national.component.scss'],\n})\nexport class NationalComponent {\n  private readonly _breadcrumbs: Breadcrumb[] = [\n    {\n      title: 'Home',\n      routerLink: '/',\n    },\n    {\n      title: 'National',\n      routerLink: '/national',\n      isActive: true,\n    },\n  ];\n\n  get breadcrumbs(): Breadcrumb[] {\n    return this._breadcrumbs;\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -334,7 +341,7 @@
                         "name": "breadcrumbs",
                         "type": "[]",
                         "returnType": "Breadcrumb[]",
-                        "line": 21
+                        "line": 22
                     }
                 }
             },
@@ -342,7 +349,7 @@
         },
         {
             "name": "RegionalComponent",
-            "id": "component-RegionalComponent-aa39b41a677d3329d9ffc30c2f5476f2",
+            "id": "component-RegionalComponent-76912dd3427385aad0e3aef86809f011",
             "file": "src/app/regional/regional.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -363,7 +370,7 @@
             "propertiesClass": [
                 {
                     "name": "_breadcrumbs",
-                    "defaultValue": "[\n    {\n      title: 'Home',\n      routerLink: '/',\n    },\n    {\n      title: 'Regional',\n      routerLink: '/regional',\n    },\n  ]",
+                    "defaultValue": "[\n    {\n      title: 'Home',\n      routerLink: '/',\n    },\n    {\n      title: 'Regional',\n      routerLink: '/regional',\n      isActive: true,\n    },\n  ]",
                     "type": "Breadcrumb[]",
                     "optional": false,
                     "description": "",
@@ -380,7 +387,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, OnInit } from '@angular/core';\nimport {Breadcrumb} from '../internal/breadcrumbs/model/breadcrumb';\n\n@Component({\n  selector: 'app-regional',\n  templateUrl: './regional.component.html',\n  styleUrls: ['./regional.component.scss'],\n})\nexport class RegionalComponent {\n  private readonly _breadcrumbs: Breadcrumb[] = [\n    {\n      title: 'Home',\n      routerLink: '/',\n    },\n    {\n      title: 'Regional',\n      routerLink: '/regional',\n    },\n  ];\n\n  get breadcrumbs(): Breadcrumb[] {\n    return this._breadcrumbs;\n  }\n}\n",
+            "sourceCode": "import { Component } from '@angular/core';\nimport { Breadcrumb } from '../internal/breadcrumbs/model/breadcrumb';\n\n@Component({\n  selector: 'app-regional',\n  templateUrl: './regional.component.html',\n  styleUrls: ['./regional.component.scss'],\n})\nexport class RegionalComponent {\n  private readonly _breadcrumbs: Breadcrumb[] = [\n    {\n      title: 'Home',\n      routerLink: '/',\n    },\n    {\n      title: 'Regional',\n      routerLink: '/regional',\n      isActive: true,\n    },\n  ];\n\n  get breadcrumbs(): Breadcrumb[] {\n    return this._breadcrumbs;\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -396,7 +403,7 @@
                         "name": "breadcrumbs",
                         "type": "[]",
                         "returnType": "Breadcrumb[]",
-                        "line": 21
+                        "line": 22
                     }
                 }
             },
@@ -504,6 +511,30 @@
                 "name": "defaultState",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/stories/home/home.stories.ts",
+                "type": "Story<HomeComponent>",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "defaultState",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/national/national.stories.ts",
+                "type": "Story<NationalComponent>",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "defaultState",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/regional/regional.stories.ts",
+                "type": "Story<RegionalComponent>",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "defaultState",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/stories/internal/breadcrumbs/breadcrumbs.stories.ts",
                 "type": "Story<BreadcrumbsComponent>",
                 "defaultValue": "Template.bind({})"
@@ -535,9 +566,25 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/stories/home/home.stories.ts",
+                "type": "Story<HomeComponent>",
+                "defaultValue": "(\n  args: HomeComponent\n): StoryFnAngularReturnType => ({\n  component: HomeComponent,\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/stories/national/national.stories.ts",
                 "type": "Story<NationalComponent>",
                 "defaultValue": "(\n  args: NationalComponent\n): StoryFnAngularReturnType => ({\n  component: NationalComponent,\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/regional/regional.stories.ts",
+                "type": "Story<RegionalComponent>",
+                "defaultValue": "(\n  args: RegionalComponent\n): StoryFnAngularReturnType => ({\n  component: RegionalComponent,\n  props: args,\n})"
             },
             {
                 "name": "Template",
@@ -554,14 +601,6 @@
                 "file": "src/stories/internal/header/header.stories.ts",
                 "type": "Story<AppComponent>",
                 "defaultValue": "(\n  args: AppComponent\n): StoryFnAngularReturnType => ({\n  component: AppComponent,\n  props: args,\n})"
-            },
-            {
-                "name": "withRouter",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/national/national.stories.ts",
-                "type": "Story<NationalComponent>",
-                "defaultValue": "Template.bind({})"
             },
             {
                 "name": "withRouter",
@@ -591,6 +630,60 @@
                     "subtype": "variable",
                     "file": "src/test.ts",
                     "type": "literal type"
+                }
+            ],
+            "src/stories/home/home.stories.ts": [
+                {
+                    "name": "defaultState",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/home/home.stories.ts",
+                    "type": "Story<HomeComponent>",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/home/home.stories.ts",
+                    "type": "Story<HomeComponent>",
+                    "defaultValue": "(\n  args: HomeComponent\n): StoryFnAngularReturnType => ({\n  component: HomeComponent,\n  props: args,\n})"
+                }
+            ],
+            "src/stories/national/national.stories.ts": [
+                {
+                    "name": "defaultState",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/national/national.stories.ts",
+                    "type": "Story<NationalComponent>",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/national/national.stories.ts",
+                    "type": "Story<NationalComponent>",
+                    "defaultValue": "(\n  args: NationalComponent\n): StoryFnAngularReturnType => ({\n  component: NationalComponent,\n  props: args,\n})"
+                }
+            ],
+            "src/stories/regional/regional.stories.ts": [
+                {
+                    "name": "defaultState",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/regional/regional.stories.ts",
+                    "type": "Story<RegionalComponent>",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/regional/regional.stories.ts",
+                    "type": "Story<RegionalComponent>",
+                    "defaultValue": "(\n  args: RegionalComponent\n): StoryFnAngularReturnType => ({\n  component: RegionalComponent,\n  props: args,\n})"
                 }
             ],
             "src/stories/internal/breadcrumbs/breadcrumbs.stories.ts": [
@@ -629,24 +722,6 @@
                     "file": "src/environments/environment.ts",
                     "type": "Env",
                     "defaultValue": "{\n  production: false,\n}"
-                }
-            ],
-            "src/stories/national/national.stories.ts": [
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/national/national.stories.ts",
-                    "type": "Story<NationalComponent>",
-                    "defaultValue": "(\n  args: NationalComponent\n): StoryFnAngularReturnType => ({\n  component: NationalComponent,\n  props: args,\n})"
-                },
-                {
-                    "name": "withRouter",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/national/national.stories.ts",
-                    "type": "Story<NationalComponent>",
-                    "defaultValue": "Template.bind({})"
                 }
             ],
             "src/stories/internal/header/header.stories.ts": [
@@ -750,7 +825,7 @@
                 "linktype": "interface",
                 "name": "Breadcrumb",
                 "coveragePercent": 0,
-                "coverageCount": "0/3",
+                "coverageCount": "0/4",
                 "status": "low"
             },
             {
@@ -810,6 +885,26 @@
                 "status": "low"
             },
             {
+                "filePath": "src/stories/home/home.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "defaultState",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/home/home.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
                 "filePath": "src/stories/internal/breadcrumbs/breadcrumbs.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
@@ -854,7 +949,7 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "Template",
+                "name": "defaultState",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -864,7 +959,27 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "withRouter",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/regional/regional.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "defaultState",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/regional/regional.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"

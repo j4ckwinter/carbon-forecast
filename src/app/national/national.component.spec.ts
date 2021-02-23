@@ -38,6 +38,7 @@ describe('NationalComponent', (): void => {
         {
           title: 'National',
           routerLink: '/national',
+          isActive: true,
         },
       ];
       // when

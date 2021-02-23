@@ -30,7 +30,7 @@ describe('BreadcrumbsComponent', (): void => {
   describe('DOM', (): void => {
     it('should display breadcrumbs with expected properties', (): void => {
       // given
-      const crumbsLength: number = 2;
+      const inactiveCrumbsLength: number = 2;
       component.breadcrumbs = [
         {
           title: 'Anything',
@@ -40,19 +40,29 @@ describe('BreadcrumbsComponent', (): void => {
           title: 'Anything',
           routerLink: 'Anything',
         },
+        {
+          title: 'Anything',
+          routerLink: 'Anything',
+          isActive: true,
+        },
       ];
       // when
       fixture.detectChanges();
       const crumbsElement: DebugElement = fixture.debugElement.query(
         By.css('.breadcrumb')
       );
-      const crumbElement: DebugElement[] = fixture.debugElement.queryAll(
+      const inactiveCrumbElement: DebugElement[] = fixture.debugElement.queryAll(
         By.css('.breadcrumb .crumb')
+      );
+      const activeCrumbElement: DebugElement[] = fixture.debugElement.queryAll(
+        By.css('.breadcrumb .crumb-active')
       );
       // then
       expect(crumbsElement).not.toBeNull();
-      expect(crumbElement).not.toBeNull();
-      expect(crumbElement.length).toEqual(crumbsLength);
+      expect(inactiveCrumbElement).not.toBeNull();
+      expect(activeCrumbElement).not.toBeNull();
+      expect(inactiveCrumbElement.length).toEqual(inactiveCrumbsLength);
+      expect(activeCrumbElement.length).toEqual(1);
     });
   });
 });
