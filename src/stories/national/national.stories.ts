@@ -4,12 +4,12 @@ import { RouterModule } from '@angular/router';
 import { moduleMetadata } from '@storybook/angular';
 import { StoryFnAngularReturnType } from '@storybook/angular/dist/client/preview/types';
 import { Meta, Story } from '@storybook/angular/types-6-0';
-import { AppComponent } from '../../app/app.component';
 import { AppModule } from '../../app/app.module';
+import { NationalComponent } from '../../app/national/national.component';
 
 export default {
-  title: 'Header',
-  component: AppComponent,
+  title: 'National',
+  component: NationalComponent,
   decorators: [
     moduleMetadata({
       imports: [
@@ -36,11 +36,11 @@ export default {
   ],
 } as Meta;
 
-const Template: Story<AppComponent> = (
-  args: AppComponent
+const Template: Story<NationalComponent> = (
+  args: NationalComponent
 ): StoryFnAngularReturnType => ({
-  component: AppComponent,
+  component: NationalComponent,
   props: args,
 });
 
-export const withRouter: Story<AppComponent> = Template.bind({});
+export const withRouter: Story<NationalComponent> = Template.bind({});

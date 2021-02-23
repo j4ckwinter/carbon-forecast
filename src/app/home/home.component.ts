@@ -1,12 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Breadcrumb } from '../internal/breadcrumbs/model/breadcrumb';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent implements OnInit {
-  constructor() {}
+export class HomeComponent {
+  private readonly _breadcrumbs: Breadcrumb[] = [
+    {
+      title: 'Home',
+      routerLink: '/',
+    },
+  ];
 
-  ngOnInit(): void {}
+  get breadcrumbs(): Breadcrumb[] {
+    return this._breadcrumbs;
+  }
 }
