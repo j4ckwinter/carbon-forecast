@@ -1,1 +1,28 @@
-<app-breadcrumbs [breadcrumbs]="breadcrumbs"></app-breadcrumbs>
+<app-header></app-header>
+<div class="block">
+  <app-breadcrumbs [breadcrumbs]="breadcrumbs"></app-breadcrumbs>
+</div>
+<div class="block">
+  <form [formGroup]="postcodeForm" (ngSubmit)="onPostcodeSubmit()">
+    <div class="field is-grouped">
+      <div class="control">
+        <app-text-input
+          [textInput]="postcodeInput"
+          [parentForm]="postcodeForm"
+        ></app-text-input>
+      </div>
+      <div class="control">
+        <app-button
+          [button]="submitButton"
+          [parentForm]="postcodeForm"
+        ></app-button>
+      </div>
+      <div class="control">
+        <app-button
+          [button]="cancelButton"
+          [parentForm]="postcodeForm"
+        ></app-button>
+      </div>
+    </div>
+  </form>
+</div>

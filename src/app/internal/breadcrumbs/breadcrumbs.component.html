@@ -2,10 +2,17 @@
   <ul>
     <ng-container *ngFor="let crumb of breadcrumbs">
       <li *ngIf="!crumb.isActive">
-        <a class="crumb" routerLink="{{crumb.routerLink}}">{{crumb.title}}</a>
+        <a class="crumb" routerLink="{{ crumb.routerLink }}">{{
+          crumb.title
+          }}</a>
       </li>
       <li *ngIf="crumb.isActive" class="is-active">
-        <a class="crumb-active" aria-current="page" routerLink="{{crumb.routerLink}}">{{crumb.title}}</a>
+        <a
+          class="crumb-active"
+          aria-current="page"
+          routerLink="{{ crumb.routerLink }}"
+        >{{ crumb.title }}</a
+        >
       </li>
     </ng-container>
   </ul>

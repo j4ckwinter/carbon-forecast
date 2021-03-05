@@ -6,6 +6,7 @@ import { Env } from './env';
 
 export const environment: Env = {
   production: false,
+  baseUrl: 'https://api.carbonintensity.org.uk',
 };
 
 /*
